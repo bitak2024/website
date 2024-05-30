@@ -44,4 +44,9 @@ button:hover {
 
 #priceOutput {
   text-align: center;
+  font-size: 20px;
+}
+
+#priceOutput span {
+  font-weight: bold;
 }
