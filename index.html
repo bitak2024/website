@@ -16,27 +16,6 @@
       <li><a href="/signup">Sign Up</a></li>
     </ul>
   </nav>
-  <form id="predictionForm">
-    <label for="region">Region:</label>
-    <select id="region" name="region">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-    </select>
-    <label for="numOfBedrooms">Number of Bedrooms (1-10):</label>
-    <input type="number" id="numOfBedrooms" name="numOfBedrooms" min="1" max="10">
-    <label for="numOfBathrooms">Number of Bathrooms (1-4):</label>
-    <input type="number" id="numOfBathrooms" name="numOfBathrooms" min="1" max="4">
-    <label for="apartmentSpace">Apartment Space (20-1000):</label>
-    <input type="number" id="apartmentSpace" name="apartmentSpace" min="20" max="1000">
-    <button type="button" onclick="predictPrice()">Predict Price</button>
-  </form>
-  <p id="priceOutput"></p>
-  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <p>Welcome to Bitak. Please log in or sign up to use our prediction service.</p>
 </body>
 </html>
