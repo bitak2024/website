@@ -6,7 +6,7 @@ function predictPrice() {
 
   if (region && numOfBedrooms && numOfBathrooms && apartmentSpace) {
     if (numOfBedrooms >= 1 && numOfBedrooms <= 10 && numOfBathrooms >= 1 && numOfBathrooms <= 4 && apartmentSpace >= 20 && apartmentSpace <= 1000) {
-      var url = `https://gp-r4ub.onrender.com/predict?region=${region}&num_of_bedrooms=${numOfBedrooms}&num_of_bathrooms=${numOfBathrooms}&apartment_space=${apartmentSpace}`;
+      var url = `/predict?region=${region}&num_of_bedrooms=${numOfBedrooms}&num_of_bathrooms=${numOfBathrooms}&apartment_space=${apartmentSpace}`;
       fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -22,4 +22,62 @@ function predictPrice() {
   } else {
     alert('Please fill in all fields.');
   }
+}
+
+function login() {
+  var email = document.getElementById('email').value;
+  var password = document.getElementById('password').value;
+
+  fetch('/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user_email: email,
+      user_password: password
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        document.getElementById('loginOutput').innerText = data.error;
+      } else {
+        document.getElementById('loginOutput').innerText = data.message;
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+}
+
+function signup() {
+  var name = document.getElementById('name').value;
+  var email = document.getElementById('email').value;
+  var phone = document.getElementById('phone').value;
+  var password = document.getElementById('password').value;
+
+  fetch('/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user_name: name,
+      user_email: email,
+      user_phone: phone,
+      user_password: password
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        document.getElementById('signupOutput').innerText = data.error;
+      } else {
+        document.getElementById('signupOutput').innerText = data.message;
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
 }
