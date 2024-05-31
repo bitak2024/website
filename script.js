@@ -6,7 +6,7 @@ function predictPrice() {
 
   if (region && numOfBedrooms && numOfBathrooms && apartmentSpace) {
     if (numOfBedrooms >= 1 && numOfBedrooms <= 10 && numOfBathrooms >= 1 && numOfBathrooms <= 4 && apartmentSpace >= 20 && apartmentSpace <= 1000) {
-      var url = `/predict?region=${region}&num_of_bedrooms=${numOfBedrooms}&num_of_bathrooms=${numOfBathrooms}&apartment_space=${apartmentSpace}`;
+      var url = `https://gp-r4ub.onrender.com/predict?region=${region}&num_of_bedrooms=${numOfBedrooms}&num_of_bathrooms=${numOfBathrooms}&apartment_space=${apartmentSpace}`;
       fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -28,7 +28,7 @@ function login() {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
 
-  fetch('/login', {
+  fetch('https://gp-r4ub.onrender.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -58,7 +58,7 @@ function signup() {
   var phone = document.getElementById('phone').value;
   var password = document.getElementById('password').value;
 
-  fetch('/register', {
+  fetch('https://gp-r4ub.onrender.com/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
