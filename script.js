@@ -44,6 +44,7 @@ function login() {
         document.getElementById('loginOutput').innerText = data.error;
       } else {
         document.getElementById('loginOutput').innerText = data.message;
+        window.location.href = "/prediction";
       }
     })
     .catch(error => {
@@ -75,6 +76,7 @@ function signup() {
         document.getElementById('signupOutput').innerText = data.error;
       } else {
         document.getElementById('signupOutput').innerText = data.message;
+        window.location.href = "/login";
       }
     })
     .catch(error => {
